@@ -1,12 +1,14 @@
 import { shallowMount } from "@vue/test-utils";
 import TodoList from "@/components/TodoList.vue";
 
-describe("HelloWorld.vue", () => {
-  it("renders props.msg when passed", () => {
-    const msg = "new message";
-    const wrapper = shallowMount(TodoList, {
-      props: { msg },
-    });
-    expect(wrapper.text()).toMatch("Todo");
+describe("TodoList.vue", () => {
+  it("render todolist successfully", () => {
+    const wrapper = shallowMount(TodoList);
+    expect(wrapper.find("div").exists()).toBe(true);
+  });
+
+  it("render todo input  successfully", () => {
+    const wrapper = shallowMount(TodoList, {});
+    expect(wrapper.find("input").exists()).toBe(true);
   });
 });
